@@ -25,6 +25,17 @@ public class MissingNumber {
         return targetSum - sum;
     }
 
+    // XOR mantığı = Eğer targetSum integer sınırını aşarsa (overflow) ne yaparsın? XOR
+    public int missingNumberEfficientPlus(int [] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if ((nums[i] ^ i) != 0) {
+                return i;
+            }
+        }
+        return nums.length - 1;
+    }
+
     public static void main(String[] args) {
         int [] arr = new int[] {1,2,3,4};
         System.out.println(arr.length);
